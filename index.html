@@ -113,21 +113,15 @@ button{
 .poll-card{
   position:relative;
   background:rgba(255,255,255,.93);
-
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-
   border:1px solid rgba(255,255,255,.9);
   border-radius:30px;
-
   padding:clamp(28px,6vw,56px);
-
   text-align:center;
-
   box-shadow:
     0 30px 80px rgba(76,29,149,.15),
     0 12px 30px rgba(15,23,42,.08);
-
   transition:.5s ease;
 }
 
@@ -141,19 +135,13 @@ button{
   display:inline-flex;
   gap:8px;
   align-items:center;
-
   margin-bottom:20px;
-
   padding:8px 14px;
-
   border-radius:999px;
-
   background:#ede9fe;
   color:#5b21b6;
-
   font-size:.78rem;
   font-weight:800;
-
   letter-spacing:.06em;
   text-transform:uppercase;
 }
@@ -161,23 +149,18 @@ button{
 h1{
   max-width:570px;
   margin:auto;
-
   font-size:clamp(2rem,5vw,3.5rem);
   line-height:1.06;
   letter-spacing:-.045em;
-
   color:#17142e;
 }
 
 .subtitle{
   max-width:520px;
   margin:18px auto 0;
-
   color:var(--soft);
-
   font-size:clamp(1rem,2.5vw,1.15rem);
   line-height:1.6;
-
   transition:.35s;
 }
 
@@ -186,55 +169,29 @@ h1{
   font-weight:800;
 }
 
-
-/* =========================================================
-   BUTTON PLAYGROUND
-   ========================================================= */
-
 .button-area{
   position:relative;
-
   width:100%;
-
-  /*
-    This is the ONLY area where the TIDAK button can move.
-  */
   min-height:190px;
-
   margin-top:34px;
-
   display:flex;
   justify-content:center;
   align-items:center;
   gap:18px;
   flex-wrap:wrap;
-
-  /*
-    VERY IMPORTANT:
-    This stops TIDAK from escaping outside this area.
-  */
   overflow:hidden;
 }
 
-
 .choice-btn{
   position:relative;
-
   border:0;
   border-radius:18px;
-
   min-height:64px;
-
   padding:18px 26px;
-
   font-weight:900;
-
   font-size:clamp(.95rem,2.5vw,1.08rem);
-
   cursor:pointer;
-
   user-select:none;
-
   transition:
     transform .22s cubic-bezier(.2,.8,.2,1),
     box-shadow .22s,
@@ -243,86 +200,31 @@ h1{
     padding .22s;
 }
 
-
-/* =========================================================
-   YES BUTTON
-   ========================================================= */
-
 #yesBtn{
   z-index:4;
-
   color:#fff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #16a34a,
-      #22c55e
-    );
-
-  box-shadow:
-    0 14px 30px rgba(34,197,94,.28);
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  box-shadow:0 14px 30px rgba(34,197,94,.28);
 }
 
 #yesBtn:hover{
-  transform:
-    translateY(-3px)
-    scale(1.03);
-
-  box-shadow:
-    0 20px 38px rgba(34,197,94,.34);
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 20px 38px rgba(34,197,94,.34);
 }
-
-
-/* =========================================================
-   NO BUTTON
-   ========================================================= */
 
 #noBtn{
   z-index:20;
-
   color:#991b1b;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fee2e2,
-      #fecaca
-    );
-
-  border:
-    1px solid rgba(239,68,68,.18);
-
-  box-shadow:
-    0 12px 25px rgba(239,68,68,.16);
-
+  background:linear-gradient(135deg,#fee2e2,#fecaca);
+  border:1px solid rgba(239,68,68,.18);
+  box-shadow:0 12px 25px rgba(239,68,68,.16);
   touch-action:manipulation;
-
   white-space:nowrap;
 }
 
-
-/*
-  IMPORTANT CHANGE:
-
-  Previously this was:
-
-      position: fixed;
-
-  That caused the button to move relative to the whole screen.
-
-  Now it is:
-
-      position: absolute;
-
-  So it stays inside .button-area.
-*/
-
 #noBtn.runaway{
   position:absolute;
-
   margin:0;
-
   transition:
     left .22s cubic-bezier(.22,.8,.32,1),
     top .22s cubic-bezier(.22,.8,.32,1),
@@ -331,42 +233,39 @@ h1{
     padding .2s;
 }
 
+#noBtn.exhausted{
+  pointer-events:none;
+  cursor:not-allowed;
+  opacity:.42;
+  filter:grayscale(.15);
+  box-shadow:none;
+}
 
-/* =========================================================
-   COUNTER / MESSAGES
-   ========================================================= */
+#yesBtn.final-choice{
+  animation:yesPulse .8s ease 3;
+  box-shadow:
+    0 0 0 10px rgba(34,197,94,.10),
+    0 20px 42px rgba(34,197,94,.34);
+}
 
 .counter{
   margin-top:8px;
-
   font-size:.82rem;
-
   color:#94a3b8;
-
   font-weight:700;
 }
 
 .funny-message{
   min-height:44px;
-
   margin-top:12px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   color:#6d28d9;
-
   font-weight:800;
-
   line-height:1.45;
-
   opacity:0;
-
   transform:translateY(7px);
-
   transition:.3s;
 }
 
@@ -375,110 +274,56 @@ h1{
   transform:translateY(0);
 }
 
-
 .yes-hint{
   position:absolute;
-
   z-index:5;
-
   left:50%;
-
   bottom:-43px;
-
   transform:translateX(-50%);
-
   padding:8px 12px;
-
   border-radius:999px;
-
   background:#fff;
-
   color:#15803d;
-
-  box-shadow:
-    0 8px 20px rgba(15,23,42,.12);
-
+  box-shadow:0 8px 20px rgba(15,23,42,.12);
   font-size:.82rem;
-
   font-weight:900;
-
   opacity:0;
-
   pointer-events:none;
-
   transition:.3s;
 }
 
 .yes-hint.visible{
   opacity:1;
-
-  transform:
-    translateX(-50%)
-    translateY(4px);
+  transform:translateX(-50%) translateY(4px);
 }
-
-
-/* =========================================================
-   CELEBRATION SCREEN
-   ========================================================= */
 
 .celebration{
   position:fixed;
-
   inset:0;
-
   z-index:100;
-
   display:none;
-
   align-items:center;
-
   justify-content:center;
-
   padding:20px;
-
   overflow-y:auto;
-
   background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(255,255,255,.75),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #ede9fe 0%,
-      #fce7f3 45%,
-      #dcfce7 100%
-    );
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.75),transparent 35%),
+    linear-gradient(135deg,#ede9fe 0%,#fce7f3 45%,#dcfce7 100%);
 }
 
 .celebration.show{
   display:flex;
-
-  animation:
-    fadeIn .55s ease both;
+  animation:fadeIn .55s ease both;
 }
 
 .celebration-card{
   width:min(92vw,700px);
-
   text-align:center;
-
-  padding:
-    clamp(30px,7vw,64px);
-
-  background:
-    rgba(255,255,255,.94);
-
-  border:
-    1px solid rgba(255,255,255,.95);
-
+  padding:clamp(30px,7vw,64px);
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(255,255,255,.95);
   border-radius:34px;
-
-  box-shadow:
-    0 35px 80px rgba(76,29,149,.18);
-
+  box-shadow:0 35px 80px rgba(76,29,149,.18);
   animation:
     celebrationPop
     .7s
@@ -487,109 +332,57 @@ h1{
 }
 
 .party-icon{
-  font-size:
-    clamp(3rem,10vw,5rem);
-
+  font-size:clamp(3rem,10vw,5rem);
   margin-bottom:10px;
-
-  animation:
-    bounceParty
-    1s
-    ease
-    infinite
-    alternate;
+  animation:bounceParty 1s ease infinite alternate;
 }
 
 .celebration h2{
-  font-size:
-    clamp(2.7rem,10vw,5.2rem);
-
+  font-size:clamp(2.7rem,10vw,5.2rem);
   line-height:1;
-
   letter-spacing:-.06em;
-
-  background:
-    linear-gradient(
-      90deg,
-      #7c3aed,
-      #db2777,
-      #16a34a
-    );
-
+  background:linear-gradient(90deg,#7c3aed,#db2777,#16a34a);
   -webkit-background-clip:text;
-
   background-clip:text;
-
   color:transparent;
 }
 
 .celebration-main{
   margin-top:24px;
-
-  font-size:
-    clamp(1.15rem,3.5vw,1.55rem);
-
+  font-size:clamp(1.15rem,3.5vw,1.55rem);
   font-weight:900;
-
   line-height:1.5;
 }
 
 .celebration-second{
   margin-top:10px;
-
   color:#7c3aed;
-
-  font-size:
-    clamp(1.05rem,3vw,1.3rem);
-
+  font-size:clamp(1.05rem,3vw,1.3rem);
   font-weight:900;
 }
 
 .celebration-small{
   max-width:520px;
-
-  margin:
-    22px auto 0;
-
+  margin:22px auto 0;
   color:#64748b;
-
   line-height:1.6;
 }
 
 .confirmed-badge{
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
-
   margin-top:30px;
-
   padding:16px 22px;
-
   border-radius:18px;
-
-  border:
-    3px solid #16a34a;
-
+  border:3px solid #16a34a;
   color:#15803d;
-
-  background:
-    rgba(220,252,231,.72);
-
-  box-shadow:
-    0 12px 30px rgba(22,163,74,.13);
-
-  font-size:
-    clamp(.92rem,3vw,1.15rem);
-
+  background:rgba(220,252,231,.72);
+  box-shadow:0 12px 30px rgba(22,163,74,.13);
+  font-size:clamp(.92rem,3vw,1.15rem);
   font-weight:950;
-
   letter-spacing:.025em;
-
-  transform:
-    rotate(-2deg);
-
+  transform:rotate(-2deg);
   animation:
     stampIn
     .6s
@@ -598,140 +391,65 @@ h1{
     both;
 }
 
-
 #confettiCanvas{
   position:fixed;
-
   inset:0;
-
   z-index:110;
-
   width:100%;
-
   height:100%;
-
   pointer-events:none;
 }
 
-
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-
 @keyframes fadeIn{
-
-  from{
-    opacity:0;
-  }
-
-  to{
-    opacity:1;
-  }
-
+  from{opacity:0}
+  to{opacity:1}
 }
-
 
 @keyframes celebrationPop{
-
   from{
     opacity:0;
-
-    transform:
-      scale(.75)
-      translateY(20px);
+    transform:scale(.75) translateY(20px);
   }
-
   to{
     opacity:1;
-
-    transform:
-      scale(1);
+    transform:scale(1);
   }
-
 }
-
 
 @keyframes stampIn{
-
   from{
     opacity:0;
-
-    transform:
-      scale(2.2)
-      rotate(-14deg);
+    transform:scale(2.2) rotate(-14deg);
   }
-
   to{
     opacity:1;
-
-    transform:
-      scale(1)
-      rotate(-2deg);
+    transform:scale(1) rotate(-2deg);
   }
-
 }
-
 
 @keyframes bounceParty{
-
-  from{
-    transform:
-      translateY(0)
-      rotate(-4deg);
-  }
-
-  to{
-    transform:
-      translateY(-8px)
-      rotate(5deg);
-  }
-
+  from{transform:translateY(0) rotate(-4deg)}
+  to{transform:translateY(-8px) rotate(5deg)}
 }
 
-
 @keyframes yesPulse{
-
-  0%,
-  100%{
-    transform:
-      scale(
-        var(--yes-scale,1)
-      );
+  0%,100%{
+    transform:scale(var(--yes-scale,1));
   }
 
   50%{
-    transform:
-      scale(
-        calc(
-          var(--yes-scale,1) + .08
-        )
-      );
-
+    transform:scale(calc(var(--yes-scale,1) + .08));
     box-shadow:
       0 0 0 12px rgba(34,197,94,.11),
       0 18px 40px rgba(34,197,94,.36);
   }
-
 }
-
 
 @keyframes yesShake{
-
-  0%,
-  100%{
-    translate:0 0;
-  }
-
-  25%{
-    translate:-4px 0;
-  }
-
-  75%{
-    translate:4px 0;
-  }
-
+  0%,100%{translate:0 0}
+  25%{translate:-4px 0}
+  75%{translate:4px 0}
 }
-
 
 .yes-attention{
   animation:
@@ -739,159 +457,97 @@ h1{
     yesShake .25s ease 2;
 }
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
 @media(max-width:600px){
 
   .poll-card{
     border-radius:24px;
-
-    padding:
-      28px
-      20px
-      30px;
+    padding:28px 20px 30px;
   }
-
-
-  /*
-    Slightly taller playground on phone so TIDAK
-    still has enough space to escape.
-  */
 
   .button-area{
     min-height:220px;
-
     flex-direction:column;
   }
 
-
   .choice-btn{
-    width:
-      min(100%,360px);
+    width:min(100%,360px);
   }
-
 
   #yesBtn{
     order:1;
   }
 
-
   #noBtn{
     order:2;
   }
 
-
   .yes-hint{
     bottom:-46px;
   }
-
 }
-
 </style>
 </head>
 
-
-
 <body>
 
+<main class="page" id="mainPage">
 
-<main
-  class="page"
-  id="mainPage"
->
-
-  <section
-    class="poll-card"
-    id="pollCard"
-  >
-
+  <section class="poll-card" id="pollCard">
 
     <div class="top-label">
       🗳️ Sistem Undian Batch
     </div>
 
-
     <h1>
       Iesza sudi ke terus jadi TKB?
     </h1>
 
-
-    <p
-      class="subtitle"
-      id="subtitle"
-    >
-
+    <p class="subtitle" id="subtitle">
       Pilihan secara sukarela dan tanpa sebarang paksaan 👀
-
     </p>
 
-
-
     <div class="button-area">
-
 
       <button
         class="choice-btn"
         id="yesBtn"
         type="button"
       >
-
         YES, Of course ! 😎
-
       </button>
-
-
 
       <button
         class="choice-btn"
         id="noBtn"
         type="button"
       >
-
         Sorry, taknak 😭
-
       </button>
-
-
 
       <div
         class="yes-hint"
         id="yesHint"
       >
-
         👆 Pilihan yang betul ada di sini
-
       </div>
 
-
     </div>
-
-
 
     <div
       class="counter"
       id="attemptCounter"
     >
-
       Percubaan untuk resign: 0
-
     </div>
-
-
 
     <div
       class="funny-message"
       id="funnyMessage"
     ></div>
 
-
   </section>
 
 </main>
-
 
 
 <section
@@ -900,103 +556,70 @@ h1{
   aria-hidden="true"
 >
 
-
   <div class="celebration-card">
 
-
     <div class="party-icon">
-
       🥳🎉
-
     </div>
-
 
     <h2>
-
       TAHNIAH! 🎉
-
     </h2>
 
-
     <p class="celebration-main">
-
       Alhamdulillah ! tahniah tahniah. So secara rasminya setuju untuk terus menjadi TKB yee
-
     </p>
-
 
     <p class="celebration-second">
-
       Tiada patah balik dah 😎
-
     </p>
-
 
     <p class="celebration-small">
-
       Keputusan ini telah direkodkan oleh sistem yang sangat adil dan tidak berat sebelah.
-
     </p>
 
-
     <div class="confirmed-badge">
-
       ✅ TIMBALAN KETUA BATCH — CONFIRMED
-
     </div>
 
-
   </div>
-
 
 </section>
 
 
-
 <canvas id="confettiCanvas"></canvas>
-
 
 
 <script>
 
 (() => {
 
-
   const noBtn =
     document.getElementById("noBtn");
-
 
   const yesBtn =
     document.getElementById("yesBtn");
 
-
   const pollCard =
     document.getElementById("pollCard");
-
 
   const subtitle =
     document.getElementById("subtitle");
 
-
   const attemptCounter =
     document.getElementById("attemptCounter");
-
 
   const funnyMessage =
     document.getElementById("funnyMessage");
 
-
   const yesHint =
     document.getElementById("yesHint");
-
 
   const celebration =
     document.getElementById("celebration");
 
-
   const buttonArea =
     document.querySelector(".button-area");
-
 
 
   let attempts=0;
@@ -1009,6 +632,7 @@ h1{
 
   let yesScale=1;
 
+  const MAX_ATTEMPTS=10;
 
 
   const noTexts=[
@@ -1036,42 +660,28 @@ h1{
   ];
 
 
-
   function updateFunnyMessage(){
-
 
     let message="";
 
-
-    if(attempts>=15){
-
+    if(attempts>=10){
 
       message=
-        "Button TIDAK sedang mempertimbangkan untuk resign juga.";
-
+        "Permohonan resign gagal dihantar. Sila pilih satu-satunya pilihan yang masih tersedia. 😌";
 
       subtitle.textContent=
-        "Demokrasi telah mengalami sedikit masalah teknikal.";
-
+        "Sistem telah mencapai had maksimum percubaan untuk resign. 😂";
 
       subtitle.classList.add(
         "democracy"
       );
-
-
-    }
-
-    else if(attempts>=10){
-
-      message=
-        "Okay cukup. Tekan YA je lah 😂";
 
     }
 
     else if(attempts>=8){
 
       message=
-        "Nampaknya sistem sangat menggalakkan anda memilih YA 🤔";
+        "Nampaknya sistem sangat menggalakkan anda memilih YES 🤔";
 
     }
 
@@ -1085,29 +695,23 @@ h1{
     else if(attempts>=3){
 
       message=
-        "Kenapa bersungguh sangat nak tekan TIDAK tu? 🤨";
+        "Kenapa bersungguh sangat nak tekan TAKNAK tu? 🤨";
 
     }
 
 
-
     if(message){
-
 
       funnyMessage.textContent=
         message;
-
 
       funnyMessage.classList.add(
         "visible"
       );
 
-
     }
 
-
   }
-
 
 
   function rectsOverlap(
@@ -1115,7 +719,6 @@ h1{
     b,
     p=0
   ){
-
 
     return !(
 
@@ -1129,9 +732,7 @@ h1{
 
     );
 
-
   }
-
 
 
   function candidateOverlapsYesButton(
@@ -1141,43 +742,28 @@ h1{
     h
   ){
 
-
-    /*
-      x and y are coordinates relative
-      to .button-area.
-    */
-
-
     const areaRect =
       buttonArea.getBoundingClientRect();
-
 
     const yesRect =
       yesBtn.getBoundingClientRect();
 
 
-
     const candidate={
-
 
       left:
         areaRect.left+x,
 
-
       top:
         areaRect.top+y,
-
 
       right:
         areaRect.left+x+w,
 
-
       bottom:
         areaRect.top+y+h
 
-
     };
-
 
 
     return rectsOverlap(
@@ -1186,17 +772,13 @@ h1{
       16
     );
 
-
   }
-
 
 
   function findSafePosition(){
 
-
     const rect =
       noBtn.getBoundingClientRect();
-
 
 
     const width =
@@ -1206,7 +788,6 @@ h1{
       );
 
 
-
     const height =
       Math.max(
         rect.height,
@@ -1214,24 +795,11 @@ h1{
       );
 
 
-
-    /*
-      Because the button is now ABSOLUTE
-      inside .button-area,
-      these coordinates are small local
-      coordinates.
-
-      It can no longer fly across the screen.
-    */
-
-
     const margin=8;
-
 
 
     const minX =
       margin;
-
 
 
     const maxX =
@@ -1246,10 +814,8 @@ h1{
       );
 
 
-
     const minY =
       margin;
-
 
 
     const maxY =
@@ -1264,7 +830,6 @@ h1{
       );
 
 
-
     let best={
 
       x:maxX,
@@ -1274,17 +839,7 @@ h1{
     };
 
 
-
-    /*
-      Try several random nearby positions.
-
-      We reject locations that overlap
-      the green YES button.
-    */
-
-
     for(let i=0;i<80;i++){
-
 
       const x =
         minX +
@@ -1293,7 +848,6 @@ h1{
           1,
           maxX-minX
         );
-
 
 
       const y =
@@ -1305,9 +859,7 @@ h1{
         );
 
 
-
       best={x,y};
-
 
 
       if(
@@ -1319,26 +871,19 @@ h1{
         )
       ){
 
-
         return {x,y};
 
-
       }
-
 
     }
 
 
-
     return best;
-
 
   }
 
 
-
   function startRunawayMode(){
-
 
     if(runawayStarted){
 
@@ -1347,28 +892,12 @@ h1{
     }
 
 
-
     const btnRect =
       noBtn.getBoundingClientRect();
 
 
-
     const areaRect =
       buttonArea.getBoundingClientRect();
-
-
-
-    /*
-      The button originally lives in normal
-      flex layout.
-
-      Before changing it to absolute,
-      calculate the same location relative
-      to .button-area.
-
-      This prevents the button from suddenly
-      jumping somewhere strange on the first click.
-    */
 
 
     const localLeft =
@@ -1376,11 +905,9 @@ h1{
       - areaRect.left;
 
 
-
     const localTop =
       btnRect.top
       - areaRect.top;
-
 
 
     noBtn.classList.add(
@@ -1388,27 +915,21 @@ h1{
     );
 
 
-
     noBtn.style.left =
       localLeft+"px";
-
 
 
     noBtn.style.top =
       localTop+"px";
 
 
-
     noBtn.style.width =
       btnRect.width+"px";
 
 
-
     runawayStarted=true;
 
-
   }
-
 
 
   function randomBetween(
@@ -1424,22 +945,67 @@ h1{
   }
 
 
+  function finishNoAttempts(){
+
+    attempts=MAX_ATTEMPTS;
+
+    attemptCounter.textContent=
+      `Had percubaan resign telah dicapai: ${MAX_ATTEMPTS}/${MAX_ATTEMPTS} 😂`;
+
+    noBtn.textContent=
+      "DAH 10 KALI WEH 😭";
+
+    noBtn.classList.add(
+      "exhausted"
+    );
+
+    noBtn.setAttribute(
+      "disabled",
+      "disabled"
+    );
+
+    noBtn.setAttribute(
+      "aria-disabled",
+      "true"
+    );
+
+
+    yesBtn.textContent=
+      "OKAY LAH, SAYA TERUSKAN 😎";
+
+    yesBtn.classList.add(
+      "final-choice"
+    );
+
+
+    yesHint.textContent=
+      "👆 Tinggal satu pilihan je dah 😌";
+
+    yesHint.classList.add(
+      "visible"
+    );
+
+
+    updateFunnyMessage();
+
+  }
+
 
   function escapeNoButton(){
 
+    if(attempts>=MAX_ATTEMPTS){
 
-    const now =
+      return;
+
+    }
+
+
+    const now=
       performance.now();
 
 
-
-    /*
-      Prevent accidental double triggering.
-    */
-
-
     if(
-      now-lastEscapeTime < 230
+      now-lastEscapeTime<230
     ){
 
       return;
@@ -1447,92 +1013,75 @@ h1{
     }
 
 
-
     lastEscapeTime=now;
-
 
 
     startRunawayMode();
 
 
-
     attempts++;
 
 
-
-    attemptCounter.textContent =
-      `Percubaan untuk resign: ${attempts}`;
-
+    attemptCounter.textContent=
+      `Percubaan untuk resign: ${attempts}/${MAX_ATTEMPTS}`;
 
 
-    /*
-      Slowly shrink TIDAK.
-    */
-
-
-    noScale =
+    noScale=
       Math.max(
-        .28,
-        1-attempts*.055
+        .48,
+        1-attempts*.045
       );
 
 
-
-    const hp =
+    const hp=
       Math.max(
-        6,
-        26-attempts*1.15
+        10,
+        26-attempts*.9
       );
 
 
-
-    const vp =
+    const vp=
       Math.max(
-        5,
-        18-attempts*.7
+        8,
+        18-attempts*.5
       );
 
 
-
-    noBtn.style.padding =
+    noBtn.style.padding=
       `${vp}px ${hp}px`;
 
 
-
-    noBtn.style.fontSize =
+    noBtn.style.fontSize=
       `${Math.max(
-        .53,
-        1.05-attempts*.028
+        .70,
+        1.05-attempts*.022
       )}rem`;
 
 
-
-    noBtn.style.transform =
+    noBtn.style.transform=
       `scale(${noScale}) rotate(${randomBetween(-6,6)}deg)`;
 
 
+    if(
+      attempts<MAX_ATTEMPTS
+    ){
 
-    noBtn.textContent =
-      noTexts[
-        Math.floor(
-          Math.random() *
-          noTexts.length
-        )
-      ];
+      noBtn.textContent=
+        noTexts[
+          Math.floor(
+            Math.random() *
+            noTexts.length
+          )
+        ];
+
+    }
 
 
-
-    /*
-      Slowly enlarge YES.
-    */
-
-
-    yesScale =
+    yesScale=
       Math.min(
-        1.60,
-        1+attempts*.035
+        1.38,
+        1+attempts*.03
       );
-
 
 
     yesBtn.style.setProperty(
@@ -1541,62 +1090,61 @@ h1{
     );
 
 
-
-    yesBtn.style.transform =
+    yesBtn.style.transform=
       `scale(${yesScale})`;
 
 
-
-    yesBtn.style.filter =
+    yesBtn.style.filter=
       `saturate(${
         Math.min(
-          1.7,
+          1.6,
           1+attempts*.04
         )
       })
       brightness(${
         Math.min(
-          1.12,
+          1.10,
           1+attempts*.006
         )
       })`;
 
 
-
-    /*
-      Find another SAFE location inside
-      the white card playground.
-    */
-
-
     requestAnimationFrame(
       ()=>{
 
-
-        const p =
+        const p=
           findSafePosition();
 
 
-
-        noBtn.style.left =
+        noBtn.style.left=
           p.x+"px";
 
 
-
-        noBtn.style.top =
+        noBtn.style.top=
           p.y+"px";
 
+
+        if(
+          attempts>=MAX_ATTEMPTS
+        ){
+
+          setTimeout(
+            finishNoAttempts,
+            260
+          );
+
+        }
 
       }
     );
 
 
-
     updateFunnyMessage();
 
 
-
-    if(attempts>=8){
+    if(
+      attempts>=8
+    ){
 
       yesHint.classList.add(
         "visible"
@@ -1604,121 +1152,64 @@ h1{
 
     }
 
-
-
-    if(
-      attempts>10 &&
-      Math.random()<.55
-    ){
-
-
-      yesBtn.classList.remove(
-        "yes-attention"
-      );
-
-
-      void yesBtn.offsetWidth;
-
-
-      yesBtn.classList.add(
-        "yes-attention"
-      );
-
-
-    }
-
-
   }
-
-
-
-  /* =========================================================
-     TIDAK BUTTON
-
-     IMPORTANT:
-     Only moves AFTER an actual click/tap.
-     Hovering does nothing.
-     ========================================================= */
 
 
   noBtn.addEventListener(
     "click",
     (e)=>{
 
-
       e.preventDefault();
-
 
       e.stopPropagation();
 
-
       escapeNoButton();
-
 
     }
   );
-
-
-
-  /*
-    Keep button valid if phone orientation
-    or browser size changes.
-  */
 
 
   window.addEventListener(
     "resize",
     ()=>{
 
-
-      if(!runawayStarted){
+      if(
+        !runawayStarted ||
+        attempts>=MAX_ATTEMPTS
+      ){
 
         return;
 
       }
 
 
-
       requestAnimationFrame(
         ()=>{
 
-
-          const p =
+          const p=
             findSafePosition();
 
 
-
-          noBtn.style.left =
+          noBtn.style.left=
             p.x+"px";
 
 
-
-          noBtn.style.top =
+          noBtn.style.top=
             p.y+"px";
-
 
         }
       );
 
-
     }
   );
-
-
-
-  /* =========================================================
-     YES BUTTON
-     ========================================================= */
 
 
   yesBtn.addEventListener(
     "click",
     ()=>{
 
-
-      noBtn.style.display =
+      noBtn.style.display=
         "none";
-
 
 
       pollCard.classList.add(
@@ -1726,19 +1217,16 @@ h1{
       );
 
 
-
       setTimeout(
         ()=>{
-
 
           document
             .getElementById(
               "mainPage"
             )
             .style
-            .display =
+            .display=
             "none";
-
 
 
           celebration
@@ -1748,7 +1236,6 @@ h1{
             );
 
 
-
           celebration
             .setAttribute(
               "aria-hidden",
@@ -1756,40 +1243,28 @@ h1{
             );
 
 
-
           launchConfetti();
-
 
         },
         350
       );
 
-
     }
   );
 
 
-
-  /* =========================================================
-     CONFETTI
-     ========================================================= */
-
-
   function launchConfetti(){
 
-
-    const canvas =
+    const canvas=
       document.getElementById(
         "confettiCanvas"
       );
 
 
-
-    const ctx =
+    const ctx=
       canvas.getContext(
         "2d"
       );
-
 
 
     const colors=[
@@ -1811,7 +1286,6 @@ h1{
     ];
 
 
-
     let particles=[];
 
     let width;
@@ -1821,46 +1295,37 @@ h1{
     let frame;
 
 
-
     function resize(){
 
-
-      const dpr =
+      const dpr=
         Math.min(
           devicePixelRatio || 1,
           2
         );
 
 
-
-      width =
+      width=
         innerWidth;
 
 
-
-      height =
+      height=
         innerHeight;
 
 
-
-      canvas.width =
+      canvas.width=
         width*dpr;
 
 
-
-      canvas.height =
+      canvas.height=
         height*dpr;
 
 
-
-      canvas.style.width =
+      canvas.style.width=
         width+"px";
 
 
-
-      canvas.style.height =
+      canvas.style.height=
         height+"px";
-
 
 
       ctx.setTransform(
@@ -1872,9 +1337,7 @@ h1{
         0
       );
 
-
     }
-
 
 
     function make(
@@ -1882,15 +1345,11 @@ h1{
       y=-20
     ){
 
-
       return{
-
 
         x,
 
-
         y,
-
 
         w:
           randomBetween(
@@ -1898,13 +1357,11 @@ h1{
             13
           ),
 
-
         h:
           randomBetween(
             9,
             18
           ),
-
 
         c:
           colors[
@@ -1914,13 +1371,11 @@ h1{
             )
           ],
 
-
         vx:
           randomBetween(
             -4.2,
             4.2
           ),
-
 
         vy:
           randomBetween(
@@ -1928,18 +1383,15 @@ h1{
             8
           ),
 
-
         g:
           randomBetween(
             .05,
             .11
           ),
 
-
         r:
           Math.random() *
           Math.PI,
-
 
         rs:
           randomBetween(
@@ -1947,19 +1399,14 @@ h1{
             .14
           ),
 
-
         o:1
 
-
       };
-
 
     }
 
 
-
     resize();
-
 
 
     for(
@@ -1968,8 +1415,7 @@ h1{
       i++
     ){
 
-
-      let p =
+      let p=
         make(
 
           Math.random()*width,
@@ -1982,36 +1428,29 @@ h1{
         );
 
 
-
-      p.vy =
+      p.vy=
         randomBetween(
           2.5,
           8.5
         );
 
 
-
       particles.push(
         p
       );
 
-
     }
 
 
-
-    const start =
+    const start=
       performance.now();
 
 
-
-    const duration =
+    const duration=
       7000;
 
 
-
     function animate(t){
-
 
       ctx.clearRect(
         0,
@@ -2021,11 +1460,9 @@ h1{
       );
 
 
-
       if(
-        t-start < 2800
+        t-start<2800
       ){
-
 
         for(
           let i=0;
@@ -2033,57 +1470,45 @@ h1{
           i++
         ){
 
-
           particles.push(
             make()
           );
 
-
         }
 
-
       }
-
 
 
       particles.forEach(
         p=>{
 
-
-          p.vy +=
+          p.vy+=
             p.g;
 
 
-
-          p.x +=
+          p.x+=
             p.vx;
 
 
-
-          p.y +=
+          p.y+=
             p.vy;
 
 
-
-          p.r +=
+          p.r+=
             p.rs;
 
 
-
-          p.x +=
+          p.x+=
             Math.sin(
               p.y*.025
-            ) * .65;
-
+            )*.65;
 
 
           ctx.save();
 
 
-
-          ctx.globalAlpha =
+          ctx.globalAlpha=
             p.o;
-
 
 
           ctx.translate(
@@ -2092,16 +1517,13 @@ h1{
           );
 
 
-
           ctx.rotate(
             p.r
           );
 
 
-
-          ctx.fillStyle =
+          ctx.fillStyle=
             p.c;
-
 
 
           ctx.fillRect(
@@ -2117,45 +1539,37 @@ h1{
           );
 
 
-
           ctx.restore();
-
 
         }
       );
 
 
-
-      particles =
+      particles=
         particles.filter(
           p=>
-            p.y <
+            p.y<
             height+50
         );
 
 
-
       if(
-        t-start <
+        t-start<
         duration
       ){
 
-
-        frame =
+        frame=
           requestAnimationFrame(
             animate
           );
-
 
       }
 
       else{
 
-
         cancelAnimationFrame(
           frame
         );
-
 
 
         ctx.clearRect(
@@ -2165,26 +1579,20 @@ h1{
           height
         );
 
-
       }
 
-
     }
-
 
 
     requestAnimationFrame(
       animate
     );
 
-
   }
-
 
 })();
 
 </script>
-
 
 </body>
 </html>
